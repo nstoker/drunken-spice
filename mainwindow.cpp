@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-
+    qDebug("Terminating main window");
 }
 
 void MainWindow::appendMessage(const QString &msg)
@@ -60,12 +60,12 @@ void MainWindow::toggleWatch()
 {
     if (watcher->isRunning()) {
         if (!watcher->stop()) {
-            QMessageBox::warning(0, tr("WARNGING"), tr("Failed to stop"));
+            QMessageBox::warning(0, tr("WARNING"), tr("Failed to stop"));
         }
         button->setText(tr("Start"));
     } else {
         if (!watcher->start()) {
-            QMessageBox::warning(0, tr("WARNGING"), tr("Failed to start"));
+            QMessageBox::warning(0, tr("WARNING"), tr("Failed to start"));
         }
         button->setText(tr("Stop"));
     }
